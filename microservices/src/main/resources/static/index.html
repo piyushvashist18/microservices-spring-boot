@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script src="jquery-3.4.1.min.js"></script>
+		<script>
+			$().ready(() => {
+				$("#squarebutton").on("click", () => {
+					let num = parseInt($("#number").val());
+					$.ajax({
+						url: `/square/${num}`,
+						success(response) {
+							$("#squareresults").text(response);
+						},
+						error(response) {
+							let error = JSON.parse(response.responseText);
+							$("#squareresults").text(error.message);
+						}
+					})
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Play with Math</h1>
+		<input type="text" id="number" placeholder="Enter a number"/>
+		<br/>
+		<button id="squarebutton">Get Square</button>
+		<h1 id="squareresults"></h1>
+	</body>
+</html>
