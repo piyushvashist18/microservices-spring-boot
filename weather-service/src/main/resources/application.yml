@@ -1,0 +1,29 @@
+server:
+ port: 8081
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://localhost:8761/eureka/
+spring:
+ application:
+  name: weather-service
+ cloud:
+  config:
+   uri: http://localhost:8888
+   
+management:
+  server:
+    port: 7007
+  endpoint:
+    beans:
+      enabled: true
+    health:
+      show-details: ALWAYS
+    env:
+      enabled: true
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'

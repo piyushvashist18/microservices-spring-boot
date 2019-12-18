@@ -1,0 +1,15 @@
+server:
+ port: 5000
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://localhost:8761/eureka/
+spring:
+ application:
+  name: training-gateway-server
+ 
+zuul:
+ routes:
+  weather-service:
+   path: /weather/**
+   id: weather-service
